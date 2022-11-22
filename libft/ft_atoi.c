@@ -10,8 +10,6 @@
 /*                                                                            */
 /* ************************************************************************** */
 
-//this function take string of characters and make an integer with it. Skip white space and handle the sign.
-
 #include "libft.h"
 
 int	ft_atoi(const char *str)

@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:20:56 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/30 15:47:24 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/01 00:06:45 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,7 +39,7 @@ int	ft_x(unsigned int ap)
 	i = ft_countdigit1(ap);
 	res = malloc(sizeof(char) * i + 1);
 	if (res == NULL)
-		return (-1);
+		return (-2147483648);
 	res[i] = '\0';
 	j = i;
 	if (ap == 0)
@@ -50,7 +50,7 @@ int	ft_x(unsigned int ap)
 		ap /= 16;
 		res[--i] = base[adrr];
 	}
-	ft_s(res);
+	i = ft_write(res);
 	free(res);
-	return (j);
+	return (i);
 }

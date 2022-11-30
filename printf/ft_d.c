@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:23:16 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/30 15:23:44 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/01 00:06:02 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,17 +37,12 @@ int	ft_d(int num)
 	int		digit;
 	char	*res;
 	int		i;
-	int		ret;
 
 	digit = ft_count(num);
 	res = ft_itoa(num);
-	i = 0;
-	ret = digit;
-	while (digit != 0)
-	{
-		write(1, &res[i++], 1);
-		digit--;
-	}
+	if (res == NULL)
+		return (-2147483648);
+	i = ft_write(res);
 	free(res);
-	return (ret);
+	return (i);
 }

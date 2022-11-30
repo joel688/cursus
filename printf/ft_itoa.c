@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 13:04:30 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/30 15:23:30 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/01 00:03:59 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -47,7 +47,7 @@ char	*ft_itoa(int n)
 	n_long = n;
 	length = ft_digitnb(n_long);
 	res = (char *)malloc((length + 1) * sizeof(char));
-	if (!res)
+	if (res == NULL)
 		return (NULL);
 	res[length] = '\0';
 	length--;

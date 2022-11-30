@@ -6,17 +6,29 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/21 17:20:13 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/30 19:10:40 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/01 00:11:54 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_printf.h"
 
+static int	ft_j(int j)
+{
+	if (j < 0)
+		return (-1);
+	return (j);
+}
+
 static void	ft_ifpercent(char *str, int *i, int *j)
 {
+	int	k;
+
+	k = 0;
 	if (str[*i] == '%')
 	{
-		write(1, "%", 1);
+		k = write(1, "%", 1);
+		if (k < 0)
+			*j += -2147483648;
 		*j += 1;
 	}
 }
@@ -53,21 +65,25 @@ int	ft_printf(const char *s, ...)
 	int		i;
 	char	*str;
 	int		j;
+	int		k;
 
 	str = (char *)s;
 	va_start(ap, s);
 	i = 0;
 	j = 0;
-	while (str[i] != '\0')
+	k = 0;
+	while (str[i] != '\0' && j >= 0 && k >= 0)
 	{
 		while (str[i] != '%' && str[i])
 		{
-			write(1, &str[i], 1);
+			k = write(1, &str[i], 1);
 			i++;
 			j++;
+			if (k < 0)
+				return (-1);
 		}
 		ft_ifprintf(str, &i, &j, ap);
 	}
 	va_end(ap);
-	return (j);
+	return (ft_j(j));
 }

@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:50:02 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 16:29:47 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 22:42:39 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -30,5 +30,6 @@ int		ft_x_maj(unsigned int ap);
 int		ft_x(unsigned int ap);
 char	*ft_itoa(int n);
 char	*ft_itoa_unsigned(unsigned int n);
+int		ft_write(char *s);
 
 #endif

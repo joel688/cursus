@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:23:12 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 10:57:55 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 23:58:26 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,7 +24,7 @@ int	ft_p(unsigned long long ap)
 	len = ft_countdigit(ap);
 	res = malloc(sizeof(char) * (len + 1));
 	if (res == NULL)
-		return (-1);
+		return (-2147483648);
 	res[len] = '\0';
 	while (len > 2)
 	{
@@ -34,7 +34,7 @@ int	ft_p(unsigned long long ap)
 	}
 	res[0] = '0';
 	res[1] = 'x';
-	len = ft_s(res);
+	len = ft_write(res);
 	free(res);
 	return (len);
 }

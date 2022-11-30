@@ -6,7 +6,7 @@
 #    By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2022/11/21 17:20:24 by joakoeni          #+#    #+#              #
-#    Updated: 2022/11/28 15:20:17 by joakoeni         ###   ########.fr        #
+#    Updated: 2022/11/30 22:43:45 by joakoeni         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -19,7 +19,7 @@ RN = ranlib
 
 CFLAGS = -Wall -Werror -Wextra
 
-SRC= ft_printf.c ft_c.c ft_countdigit.c ft_d.c ft_itoa.c ft_itoa_unsigned.c ft_p.c ft_printf.c ft_s.c ft_u.c ft_x.c ft_x_maj.c
+SRC= ft_printf.c ft_c.c ft_countdigit.c ft_d.c ft_itoa.c ft_itoa_unsigned.c ft_p.c ft_printf.c ft_s.c ft_u.c ft_x.c ft_x_maj.c ft_write.c
 
 OBJS = $(SRC:.c=.o)
 

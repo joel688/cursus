@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:23:16 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 15:36:50 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:23:44 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -48,10 +48,6 @@ int	ft_d(int num)
 		write(1, &res[i++], 1);
 		digit--;
 	}
+	free(res);
 	return (ret);
 }
-
-/*int main()
-{
-	printf("\n%d",ft_d(-9));
-}*/

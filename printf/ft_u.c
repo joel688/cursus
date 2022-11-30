@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 13:54:32 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 16:33:07 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:47:03 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -15,7 +15,10 @@
 int	ft_u(unsigned int ap)
 {
 	char	*res;
+	int		i;
 
 	res = ft_itoa_unsigned(ap);
-	return (ft_s(res));
+	i = ft_s(res);
+	free(res);
+	return (i);
 }

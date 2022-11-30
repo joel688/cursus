@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:21:57 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 17:44:41 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:47:16 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -42,6 +42,8 @@ int	ft_x_maj(unsigned int ap)
 		return (-1);
 	res[i] = '\0';
 	j = i;
+	if (ap == 0)
+		res[0] = '0';
 	while (ap > 0)
 	{
 		adrr = ap % 16;

@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 14:09:28 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 16:32:42 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:43:07 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,6 +53,5 @@ char	*ft_itoa_unsigned(unsigned int n)
 		length--;
 		n_long /= 10;
 	}
-	free(res);
 	return (res);
 }

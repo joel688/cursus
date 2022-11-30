@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/28 09:20:20 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 17:42:49 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 14:21:20 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,10 +17,10 @@ int	ft_s(char *ap)
 	int	i;
 
 	i = 0;
-	if(ap == NULL)
+	if (ap == NULL)
 	{
 		write(1, "(null)", 6);
-		return(6);
+		return (6);
 	}
 	while (ap[i])
 	{

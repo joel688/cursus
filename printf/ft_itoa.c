@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/11/11 13:04:30 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/11/29 11:29:07 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/11/30 15:23:30 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 #include "ft_printf.h"
@@ -61,6 +61,5 @@ char	*ft_itoa(int n)
 	}
 	if (ft_sign(n))
 		res[0] = '-';
-	free(res);
 	return (res);
 }

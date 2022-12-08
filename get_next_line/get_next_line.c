@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:14:21 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/08 18:53:37 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:04:14 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ char	*get_next_line(int fd)
 	char		*buf;
 	static char	*stash = NULL;
 	
-	if(fd < 0 || !(BUFFER_SIZE >= 0) || fd > 4) 
+	if(fd < 0 || !(BUFFER_SIZE >= 0)) 
 		return(NULL);
 	line = NULL;
 	j = 1;

@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:58:21 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/08 18:53:14 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:05:21 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -108,7 +108,7 @@ char	*ft_strjoin(char *line, char *buf)
 	while (buf[i] != '\0')
 		*linejoined++ = *buf++;
 	*linejoined = '\0';
-	//if(line != NULL)
-	//	free(line - r);
+	if(line != NULL)
+		free(line - r);
 	return (linejoined - len);
 }

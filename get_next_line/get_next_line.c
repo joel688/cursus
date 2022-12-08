@@ -5,26 +5,26 @@
 /*                                                    +:+ +:+         +:+     */
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/12/06 14:14:21 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/08 19:56:39 by joakoeni         ###   ########.fr       */
+/*   Created: 2022/12/08 20:14:03 by joakoeni          #+#    #+#             */
+/*   Updated: 2022/12/08 22:28:55 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
 
-char	*get_next_line(int fd)
+	char *get_next_line(int fd)
 {
 	int			j;
 	char		*line;
 	char		*buf;
 	static char	*stash = NULL;
-	
-	if(fd < 0 || !(BUFFER_SIZE >= 0)) 
-		return(NULL);
+
+	if (fd < 0 || !(BUFFER_SIZE >= 0))
+		return (NULL);
 	line = NULL;
 	j = 1;
 	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if(buf == NULL)
+	if (buf == NULL)
 		return (NULL);
 	if (stash != NULL)
 	{
@@ -32,7 +32,7 @@ char	*get_next_line(int fd)
 		if (stash[ft_strlen(stash) - 1] == '\n')
 		{
 			free(stash);
-			stash = NULL;
+				stash = NULL;
 			return (line);
 		}
 	}
@@ -45,7 +45,7 @@ char	*get_next_line(int fd)
 		{
 			free(line);
 			line = NULL;
-			break ;
+			break;
 		}
 		stash = ft_stash(line);
 		line = ft_del_after_back_slash_n(line);
@@ -65,11 +65,11 @@ char	*get_next_line(int fd)
 	char	*line;
 
 	fd = open("fichier1.txt", O_RDONLY);
-	//while (1)
-	//{
-		line = get_next_line(fd);
-	//	if (line == NULL)
-	//		break ;
+while (1)
+{
+	line = get_next_line(fd);
+	if (line == NULL)
+		break ;
 		printf("%s", line);
-	//}
+	}
 }*/

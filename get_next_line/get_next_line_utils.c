@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:58:21 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/08 19:05:21 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/08 21:48:45 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -94,21 +94,25 @@ char	*ft_strjoin(char *line, char *buf)
 	char	*linejoined;
 	size_t	len;
 	int		i;
-	size_t r;
+	size_t	r;
 
 	i = 0;
 	r = ft_strlen(line);
 	len = ft_strlen(line) + ft_strlen(buf);
 	linejoined = malloc(sizeof(char) * len + 1);
 	if (linejoined == NULL)
+	{
+		if (line != NULL)
+			free(line);
 		return (NULL);
+	}
 	if (line != NULL)
 		while (*line != '\0')
 			*linejoined++ = *line++;
 	while (buf[i] != '\0')
 		*linejoined++ = *buf++;
 	*linejoined = '\0';
-	if(line != NULL)
+	if (line != NULL)
 		free(line - r);
 	return (linejoined - len);
 }

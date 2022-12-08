@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 15:11:58 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/08 03:54:45 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/08 22:18:17 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,7 @@
 # define GET_NEXT_LINE_H
 
 # ifndef BUFFER_SIZE
-#  define BUFFER_SIZE (5)
+#  define BUFFER_SIZE (42)
 
 # endif
 

@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/06 14:14:21 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/08 19:54:50 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/08 19:56:39 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,7 +29,6 @@ char	*get_next_line(int fd)
 	if (stash != NULL)
 	{
 		line = stash;
-		line[ft_strlen(stash)] = '\0';
 		if (stash[ft_strlen(stash) - 1] == '\n')
 		{
 			free(stash);

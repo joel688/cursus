@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:14:03 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/10 00:24:31 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/12 10:19:51 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,6 +29,9 @@ static int	ft_isn(char *str)
 		return (0);
 }
 
+//static char *ft_if_stash_assigned(char *stash, char *buf, char *line)
+//{
+
 char	*get_next_line(int fd)
 {
 	int			j;
@@ -41,7 +44,7 @@ char	*get_next_line(int fd)
 	line = NULL;
 	j = 1;
 	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buf == NULL)
+	if (buf == NULL)	
 		return (NULL);
 	if (stash != NULL)
 	{
@@ -55,7 +58,6 @@ char	*get_next_line(int fd)
 		}
 		if (stash[ft_strlen(stash) - 1] == '\n')
 		{
-			//	free(stash);
 			stash = NULL;
 			free(buf);
 			return (line);
@@ -81,8 +83,8 @@ char	*get_next_line(int fd)
 		return (NULL);
 	return (line);
 }
-/*
-int	main(void)
+
+/*int	main(void)
 {
 	int		fd;
 	char	*line;

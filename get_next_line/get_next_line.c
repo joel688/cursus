@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/08 20:14:03 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/12 10:19:51 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/12 13:47:27 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -29,8 +29,14 @@ static int	ft_isn(char *str)
 		return (0);
 }
 
-//static char *ft_if_stash_assigned(char *stash, char *buf, char *line)
-//{
+int	ft_boolean(char *line)
+{
+	if (line == NULL)
+		return (1);
+	if (line[ft_strlen(line) - 1] == '\n')
+		return (0);
+	return (1);
+}
 
 char	*get_next_line(int fd)
 {
@@ -44,7 +50,7 @@ char	*get_next_line(int fd)
 	line = NULL;
 	j = 1;
 	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buf == NULL)	
+	if (buf == NULL)
 		return (NULL);
 	if (stash != NULL)
 	{
@@ -83,20 +89,3 @@ char	*get_next_line(int fd)
 		return (NULL);
 	return (line);
 }
-
-/*int	main(void)
-{
-	int		fd;
-	char	*line;
-
-	fd = open("../../francinette/tests/get_next_line/gnlTester/files/41_with_nl",
-			O_RDONLY);
-while (1)
-{
-	line = get_next_line(fd);
-	if (line == NULL)
-		break ;
-		printf("%s", line);
-	}
-}
-*/

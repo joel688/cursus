@@ -6,7 +6,7 @@
 /*   By: joakoeni <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/12/05 15:58:21 by joakoeni          #+#    #+#             */
-/*   Updated: 2022/12/12 10:06:28 by joakoeni         ###   ########.fr       */
+/*   Updated: 2022/12/12 11:35:34 by joakoeni         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,15 +26,6 @@ int	ft_check_for_stash(char *line)
 	return (0);
 }
 
-int	ft_boolean(char *line)
-{
-	if (line == NULL)
-		return (1);
-	if (line[ft_strlen(line) - 1] == '\n')
-		return (0);
-	return (1);
-}
-
 char	*ft_del_after_back_slash_n(char *line)
 {
 	int	len;
@@ -47,6 +38,18 @@ char	*ft_del_after_back_slash_n(char *line)
 	if (line[i] == '\n')
 		line[i + 1] = '\0';
 	return (line);
+}
+
+int	ft_strlen(char *line)
+{
+	int	i;
+
+	i = 0;
+	if (line == NULL)
+		return (0);
+	while (line[i])
+		i++;
+	return (i);
 }
 
 char	*ft_stash(char *line)
@@ -75,18 +78,6 @@ char	*ft_stash(char *line)
 	}
 	tmp[j] = '\0';
 	return (tmp);
-}
-
-size_t	ft_strlen(char *line)
-{
-	size_t	i;
-
-	i = 0;
-	if (line == NULL)
-		return (0);
-	while (line[i])
-		i++;
-	return (i);
 }
 
 char	*ft_strjoin(char *line, char *buf)

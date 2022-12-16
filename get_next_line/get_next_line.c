@@ -11,81 +11,61 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+#include <fcntl.h>
+#include <stdio.h>
 
-static int	ft_isn(char *str)
+char	*ft_read_to_left_str(int fd, char *left_str)
 {
-	int	i;
+	char	*buff;
+	int		rd_bytes;
 
-	i = 0;
-	while (*str && i <= '\n')
+	buff = malloc((BUFFER_SIZE + 1) * sizeof(char));
+	if (!buff)
+		return (NULL);
+	rd_bytes = 1;
+	while (!ft_strchr(left_str, '\n') && rd_bytes != 0)
 	{
-		if (*str == '\n')
-			i += *(str);
-		str++;
+		rd_bytes = read(fd, buff, BUFFER_SIZE);
+		if (rd_bytes == -1)
+		{
+			free(buff);
+			return (NULL);
+		}
+		buff[rd_bytes] = '\0';
+		left_str = ft_strjoin(left_str, buff);
 	}
-	if (i > '\n')
-		return (1);
-	else
-		return (0);
-}
-
-int	ft_boolean(char *line)
-{
-	if (line == NULL)
-		return (1);
-	if (line[ft_strlen(line) - 1] == '\n')
-		return (0);
-	return (1);
+	free(buff);
+	return (left_str);
 }
 
 char	*get_next_line(int fd)
 {
-	int			j;
 	char		*line;
-	char		*buf;
-	static char	*stash = NULL;
+	static char	*left_str;
 
-	if (fd < 0 || !(BUFFER_SIZE >= 0))
+	if (fd < 0 || BUFFER_SIZE <= 0)
+		return (0);
+	left_str = ft_read_to_left_str(fd, left_str);
+	if (!left_str)
 		return (NULL);
-	line = NULL;
-	j = 1;
-	buf = malloc(sizeof(char) * BUFFER_SIZE + 1);
-	if (buf == NULL)
-		return (NULL);
-	if (stash != NULL)
-	{
-		line = stash;
-		if (ft_isn(line))
-		{
-			stash = ft_stash(line);
-			line = ft_del_after_back_slash_n(line);
-			free(buf);
-			return (line);
-		}
-		if (stash[ft_strlen(stash) - 1] == '\n')
-		{
-			stash = NULL;
-			free(buf);
-			return (line);
-		}
-	}
-	while (ft_boolean(line) > 0 && j > 0)
-	{
-		j = read(fd, buf, BUFFER_SIZE);
-		buf[j] = '\0';
-		line = ft_strjoin(line, buf);
-		if (line[0] == '\0')
-		{
-			free(line);
-			line = NULL;
-			break ;
-		}
-		stash = ft_stash(line);
-		line = ft_del_after_back_slash_n(line);
-	}
-	free(buf);
-	buf = NULL;
-	if (j == -1)
-		return (NULL);
+	line = ft_get_line(left_str);
+	left_str = ft_new_left_str(left_str);
 	return (line);
 }
+
+/*int	main(void)
+{
+	int		fd;
+	char	*line;
+
+	fd = open("fichier.txt", O_RDONLY);
+	while (1)
+	{
+		line = get_next_line(fd);
+		printf("%s", line);
+		if (line == NULL)
+			break ;
+		free(line);
+	}
+	return (0);
+}*/

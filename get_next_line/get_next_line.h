@@ -13,21 +13,19 @@
 #ifndef GET_NEXT_LINE_H
 # define GET_NEXT_LINE_H
 
-# ifndef BUFFER_SIZE
-#  define BUFFER_SIZE (42)
-
-# endif
-
-# include <fcntl.h>
-# include <stdio.h>
 # include <stdlib.h>
 # include <unistd.h>
 
+# ifndef BUFFER_SIZE
+#  define BUFFER_SIZE 1000
+# endif
+
 char	*get_next_line(int fd);
-int		ft_strlen(char *line);
-char	*ft_strjoin(char *ret, char *buf);
-char	*ft_stash(char *res);
-char	*ft_del_after_back_slash_n(char *line);
-int		ft_check_for_stash(char *line);
-int		ft_back_slash_n_occurs_one_time(char *stash);
+char	*ft_read_to_left_str(int fd, char *left_str);
+char	*ft_strchr(char *s, int c);
+char	*ft_strjoin(char *left_str, char *buff);
+size_t	ft_strlen(char *s);
+char	*ft_get_line(char *left_str);
+char	*ft_new_left_str(char *left_str);
+
 #endif
